@@ -1,16 +1,11 @@
-# custom_clock_designs
+# Custom Clock Designs
 
-A new Flutter project.
+A WIP flutter project which aims to provide examples of `CustomPainter` uses. 
+This repository contains Custom Clock Face designs using `CustomPainter` with Flutter.
 
-## Getting Started
+## Demo
+<img src="https://user-images.githubusercontent.com/27812028/162463133-80d90491-4e3d-42f9-a32b-490777ff22ac.gif" width="220" height="450" />
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
