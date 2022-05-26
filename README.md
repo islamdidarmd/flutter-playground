@@ -1,4 +1,4 @@
-# Custom Clock Designs
+# Custom Clock Design
 
 A flutter project which aims to provide examples of `CustomPainter` uses. 
 This repository contains Custom Clock Face design using `CustomPainter` with Flutter
