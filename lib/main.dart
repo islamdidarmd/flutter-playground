@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'clock_face_list.dart';
+import 'clock_face_widget.dart';
 
 void main() {
   runApp(const CustomClockDesignsApp());
@@ -12,11 +12,11 @@ class CustomClockDesignsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Custom Clock Designs',
+      title: 'Custom Clock Design',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ClockFaceList(),
+      home: const ClockFaceWidget(),
     );
   }
 }

@@ -24,15 +24,10 @@ class _ClassicClockWidgetState extends State<ClassicClockWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      color: Colors.black87,
-      child: SizedBox(
-        height: 250,
-        child: CustomPaint(
-          painter: _ClockPainter(),
-        ),
+    return SizedBox(
+      height: 250,
+      child: CustomPaint(
+        painter: _ClockPainter(),
       ),
     );
   }
