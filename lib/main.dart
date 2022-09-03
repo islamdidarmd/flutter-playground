@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-
-import 'clock_face_widget.dart';
+import 'package:flutter_playground/home/home_screen.dart';
 
 void main() {
-  runApp(const CustomClockDesignsApp());
+  runApp(const FlutterPlayGroundApp());
 }
 
-class CustomClockDesignsApp extends StatelessWidget {
-  const CustomClockDesignsApp({Key? key}) : super(key: key);
+class FlutterPlayGroundApp extends StatelessWidget {
+  const FlutterPlayGroundApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Custom Clock Design',
+      title: 'Flutter Playground',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ClockFaceWidget(),
+      home: const HomeScreen(),
     );
   }
 }
