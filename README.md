@@ -1,6 +1,6 @@
 # Flutter Playground
 
-A flutter project which aims to provide examples for flutter.
+A flutter project which aims to provide examples.
 
 
 
