@@ -3,6 +3,7 @@ import 'package:flutter_playground/custom_painter/custom_painter_screen.dart';
 import 'package:flutter_playground/utils/navigation_utils.dart';
 
 import '../bottom_nav/bottom_nav_screen.dart';
+import '../particles/particles_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -30,6 +31,12 @@ class HomeScreen extends StatelessWidget {
                 context.navigateTo(const BottomNavScreen());
               },
               child: const Text('Custom Bottom Nav'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.navigateTo(const ParticlesScreen());
+              },
+              child: const Text('Particles'),
             ),
           ],
         ),
