@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'clock_faces/classic_clock_painter.dart';
+import 'classic_clock_painter.dart';
 
 class ClockFaceScreen extends StatelessWidget {
   const ClockFaceScreen({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/custom_painter/custom_painter_screen.dart';
+import 'package:flutter_playground/clock_faces/clock_face_screen.dart';
 import 'package:flutter_playground/dot_progress/dot_progress.dart';
 import 'package:flutter_playground/fab_menu/fab_menu.dart';
 import 'package:flutter_playground/utils/navigation_utils.dart';
@@ -24,9 +24,9 @@ class HomeScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                context.navigateTo(const CustomPainterScreen());
+                context.navigateTo(const ClockFaceScreen());
               },
-              child: const Text('Custom Painter Example'),
+              child: const Text('Clock Face Example'),
             ),
             ElevatedButton(
               onPressed: () {
