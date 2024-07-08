@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class FabMenu extends StatefulWidget {
-  const FabMenu({Key? key}) : super(key: key);
+class FabMenuScreen extends StatefulWidget {
+  const FabMenuScreen({Key? key}) : super(key: key);
 
   @override
-  _FabMenuState createState() => _FabMenuState();
+  _FabMenuScreenState createState() => _FabMenuScreenState();
 }
 
-class _FabMenuState extends State<FabMenu>
+class _FabMenuScreenState extends State<FabMenuScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<int> _animation;

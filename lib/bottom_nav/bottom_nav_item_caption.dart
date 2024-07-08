@@ -21,7 +21,7 @@ class BottomNavItemCaption extends StatelessWidget {
           child: Center(
               child: Text(
             getTextForIndex(selectedIndex),
-            style: Theme.of(context).textTheme.caption,
+            style: Theme.of(context).textTheme.labelSmall,
           ))),
     );
   }

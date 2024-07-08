@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/clock_faces/clock_face_screen.dart';
-import 'package:flutter_playground/dot_progress/dot_progress.dart';
-import 'package:flutter_playground/fab_menu/fab_menu.dart';
+import 'package:flutter_playground/animation/dot_progress/dot_progress.dart';
+import 'package:flutter_playground/animation/fab_menu/fab_menu.dart';
+import 'package:flutter_playground/animation/particles/particles_screen.dart';
+import 'package:flutter_playground/bottom_nav/bottom_nav_screen.dart';
+import 'package:flutter_playground/custom_painter/clock_faces/clock_face_screen.dart';
 import 'package:flutter_playground/utils/navigation_utils.dart';
-
-import '../bottom_nav/bottom_nav_screen.dart';
-import '../particles/particles_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,44 +15,90 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter Playground'),
       ),
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                context.navigateTo(const ClockFaceScreen());
-              },
-              child: const Text('Clock Face Example'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.navigateTo(const BottomNavScreen());
-              },
-              child: const Text('Custom Bottom Nav'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.navigateTo(const ParticlesScreen());
-              },
-              child: const Text('Particles'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.navigateTo(const DotProgress());
-              },
-              child: const Text('Dot Progress'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.navigateTo(const FabMenu());
-              },
-              child: const Text('Fab Menu'),
-            ),
-          ],
+      body: ListView(
+        children: const [
+          _AnimationsTileView(),
+          _CustomPainterTileView(),
+          _CustomWidgetTileView(),
+        ],
+      ),
+    );
+  }
+}
+
+class _AnimationsTileView extends StatelessWidget {
+  const _AnimationsTileView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      title: const Text('Animations'),
+      children: [
+        _SubContentView(
+          const Text('Multiple Floating Menu'),
+          onTap: () => context.navigateTo(const FabMenuScreen()),
         ),
+        _SubContentView(
+          const Text('Dot Progress'),
+          onTap: () => context.navigateTo(const DotProgressScreen()),
+        ),
+        _SubContentView(
+          const Text('Particles'),
+          onTap: () => context.navigateTo(const ParticlesScreen()),
+        ),
+      ],
+    );
+  }
+}
+
+class _CustomPainterTileView extends StatelessWidget {
+  const _CustomPainterTileView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      title: const Text('Custom Painter'),
+      children: [
+        _SubContentView(
+          const Text('Analog Clock'),
+          onTap: () => context.navigateTo(const ClockFaceScreen()),
+        ),
+      ],
+    );
+  }
+}
+
+class _CustomWidgetTileView extends StatelessWidget {
+  const _CustomWidgetTileView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      title: const Text('Custom Widgets'),
+      children: [
+        _SubContentView(
+          const Text('Bottom Navigation Bar'),
+          onTap: () => context.navigateTo(const BottomNavScreen()),
+        ),
+      ],
+    );
+  }
+}
+
+class _SubContentView extends StatelessWidget {
+  const _SubContentView(this.text, {required this.onTap, super.key});
+
+  final Widget text;
+  final Function() onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.grey.shade100,
+      child: ListTile(
+        onTap: onTap,
+        title: text,
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       ),
     );
   }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dot.dart';
 
-class DotProgress extends StatefulWidget {
-  const DotProgress({super.key});
+class DotProgressScreen extends StatefulWidget {
+  const DotProgressScreen({super.key});
 
   @override
-  State<DotProgress> createState() => _DotProgressState();
+  State<DotProgressScreen> createState() => _DotProgressScreenState();
 }
 
-class _DotProgressState extends State<DotProgress>
+class _DotProgressScreenState extends State<DotProgressScreen>
     with SingleTickerProviderStateMixin {
   final dots = [
     Dot(color: Colors.yellow[600]!),
