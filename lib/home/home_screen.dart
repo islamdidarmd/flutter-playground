@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/animation/dot_progress/dot_progress.dart';
+import 'package:flutter_playground/animation/dot_progress/dot_progress_view.dart';
 import 'package:flutter_playground/animation/fab_menu/fab_menu.dart';
 import 'package:flutter_playground/animation/particles/particles_screen.dart';
 import 'package:flutter_playground/bottom_nav/bottom_nav_screen.dart';
