@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.islamdidarmd.customclock.custom_clock_designs">
+    package="com.islamdidarmd.flutter_playground">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
    <application
-        android:label="custom_clock_designs"
+        android:label="flutter_playground"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

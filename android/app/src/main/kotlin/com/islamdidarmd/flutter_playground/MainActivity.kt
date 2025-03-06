@@ -1,4 +1,4 @@
-package com.islamdidarmd.customclock.custom_clock_designs
+package com.islamdidarmd.flutter_playground
 
 import io.flutter.embedding.android.FlutterActivity
 

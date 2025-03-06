@@ -1,0 +1,1 @@
+/Users/islamdidarmd/StudioProjects/flutter-playground/build/app/intermediates/cxx/Debug/53484i5w/obj/arm64-v8a
