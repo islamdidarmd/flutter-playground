@@ -5,6 +5,7 @@ import 'package:flutter_playground/animation/particles/particles_screen.dart';
 import 'package:flutter_playground/bottom_nav/bottom_nav_screen.dart';
 import 'package:flutter_playground/custom_painter/aniamted_gradient_border/animated_gradient_border_screen.dart';
 import 'package:flutter_playground/custom_painter/clock_faces/clock_face_screen.dart';
+import 'package:flutter_playground/ui_example/pull_to_refresh.dart';
 import 'package:flutter_playground/utils/navigation_utils.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,6 +22,7 @@ class HomeScreen extends StatelessWidget {
           _AnimationsTileView(),
           _CustomPainterTileView(),
           _CustomWidgetTileView(),
+          _UIExampleView(),
         ],
       ),
     );
@@ -89,6 +91,24 @@ class _CustomWidgetTileView extends StatelessWidget {
     );
   }
 }
+
+class _UIExampleView extends StatelessWidget {
+  const _UIExampleView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      title: const Text('UI Examples'),
+      children: [
+        _SubContentView(
+          const Text('Pull to Refresh'),
+          onTap: () => context.navigateTo(const PullToRefreshScreen()),
+        ),
+      ],
+    );
+  }
+}
+
 
 class _SubContentView extends StatelessWidget {
   const _SubContentView(this.text, {required this.onTap, super.key});
