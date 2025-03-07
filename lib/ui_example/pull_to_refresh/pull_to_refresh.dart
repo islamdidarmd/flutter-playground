@@ -6,9 +6,7 @@ class PullToRefreshScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pull to Refresh'),
-      ),
+      appBar: AppBar(title: const Text('Pull to Refresh')),
       body: const SizedBox.expand(child: Center(child: _PullToRefreshView())),
     );
   }
@@ -41,40 +39,40 @@ class _PullToRefreshViewState extends State<_PullToRefreshView> {
       onRefresh: _refreshData,
       child: FutureBuilder<_UserData>(
         future: _userDataFuture,
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-              return const Text('No future to execute');
+        builder: (_, snapshot) => _buildContent(snapshot),
+      ),
+    );
+  }
 
-            case ConnectionState.waiting:
-              if (_cachedData != null) {
-                return ListView.builder(
-                  itemCount: 50,
-                  itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(snapshot.data!.name),
-                      ),
-                    );
-              }
-              return const Center(child: CircularProgressIndicator());
+  Widget _buildContent(AsyncSnapshot<_UserData> snapshot) {
+    switch (snapshot.connectionState) {
+      case ConnectionState.none:
+        return const Text('No future to execute');
 
-            case ConnectionState.active:
-              return const Center(child: CircularProgressIndicator());
+      case ConnectionState.waiting:
+        if (_cachedData != null) {
+          return _buildListView(List.generate(50, (index) => _cachedData!));
+        }
+        return const Center(child: CircularProgressIndicator());
 
-            case ConnectionState.done:
-              if (snapshot.hasError) {
-                return const Text('Error');
-              }
+      case ConnectionState.active:
+        return const Center(child: CircularProgressIndicator());
 
-              return ListView.builder(
-                itemCount: 50,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(snapshot.data!.name),
-                ),
-              );
-          }
-        },
+      case ConnectionState.done:
+        if (snapshot.hasError) {
+          return const Text('Error');
+        }
+        _cachedData = snapshot.requireData;
+        return _buildListView(List.generate(50, (index) => _cachedData!));
+    }
+  }
+
+  Widget _buildListView(List<_UserData> data) {
+    return ListView.builder(
+      itemCount: data.length,
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text('${data[index].name} ${data[index].age + index}'),
       ),
     );
   }
