@@ -5,11 +5,16 @@ set -e
 BUILD_DIRECTORY="build/web"
 DEPLOY_DIRECTORY="docs"
 COMMIT_MESSAGE="Deploy On Pages"
-BASE_HREF="/flutter_playground/"
+BASE_HREF="/flutter-playground/"
 
 build_flutter_web() {
     echo "Building Web application..."
-    if ! flutter build web --base-href=$BASE_HREF; then
+    
+    rm -rf "$BUILD_DIRECTORY"
+    
+    if ! flutter build web \
+        --base-href=$BASE_HREF \
+        --release; then
         echo "Flutter build failed"
         exit 1
     fi
@@ -26,7 +31,7 @@ deploy_to_pages() {
         echo "Failed to copy build files"
         exit 1
     fi
-    
+
     if git add .; then
         git commit -m "$COMMIT_MESSAGE" && git push
     else
@@ -35,6 +40,7 @@ deploy_to_pages() {
     fi
     
     echo "Deployment completed successfully!"
+    echo "Please ensure GitHub Pages is configured to serve from the $DEPLOY_DIRECTORY folder"
 }
 
 build_flutter_web
